@@ -1,11 +1,11 @@
 #include<stdio.h>
 
-void printArray(int* A, int n){
+void printArray(int* A, int n){   // printing Array element
     for (int i = 0; i < n; i++)
     {
         printf("%d ", A[i]);
     }
-    printf("\n");
+    printf("\n");    // priting a line after array printing
 }
 
 void selectionSort(int *A, int n){
@@ -16,11 +16,11 @@ void selectionSort(int *A, int n){
         indexOfMin = i;
         for (int j = i+1; j < n; j++)
         {
-            if(A[j] < A[indexOfMin]){
+            if(A[j] < A[indexOfMin]){    //checking for condition whether second element of array is lesser than first.
                 indexOfMin = j;
             }
         }
-        // Swap A[i] and A[indexOfMin]
+                    // Swap A[i] and A[indexOfMin]
         temp = A[i];
         A[i] = A[indexOfMin];
         A[indexOfMin] = temp;
@@ -53,15 +53,15 @@ int main(){
     // int n = 5;
     int n,A[90];
     printf("enter the no of element:");
-    scanf("%d",&n);
+    scanf("%d",&n);   //taking input from user for number of element
     printf("enter %d element:\n",n);
     for(int i=0;i<n;i++)
     {
-        scanf("%d ",&A[i]);
+        scanf("%d ",&A[i]);  // taking input from user for Array element
     }
-    printArray(A, n);
-    selectionSort(A, n);
-    printArray(A, n);
+    printArray(A, n);  //printing Array element before selectionSort
+    selectionSort(A, n);   //calling selection sort
+    printArray(A, n);   //printing Array element after selectionSort
 
     return 0;
 }
