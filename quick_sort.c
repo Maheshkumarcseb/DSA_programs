@@ -1,40 +1,40 @@
 #include <stdio.h>
 
-void printArray(int *A, int n)
+void printArray(int *A, int n)    // printing the array element
 {
     for (int i = 0; i < n; i++)
     {
         printf("%d ", A[i]);
     }
-    printf("\n");
+    printf("\n");   // printing new line after array
 }
-
 int partition(int A[], int low, int high)
 {
-    int pivot = A[low];
+    int pivot = A[low];  //storing the first element of array into pivot
     int i = low + 1;
     int j = high;
     int temp;
 
     do
     {
-        while (A[i] <= pivot)
+        while (A[i] <= pivot) //checking condition whether second element is lesser than or equal to first element.
         {
             i++;
         }
 
-        while (A[j] > pivot)
+        while (A[j] > pivot)  // checking condition whether last element is greater than pivot or not.
         {
             j--;
         }
 
-        if (i < j)
+        if (i < j)     
         {
+            //swapping A[i] and A[j]
             temp = A[i];
             A[i] = A[j];
             A[j] = temp;
         }
-    } while (i < j);
+    } while (i < j);  //checking for condition
 
     // Swap A[low] and A[j]
     temp = A[low];
@@ -49,7 +49,7 @@ void quickSort(int A[], int low, int high)
 
     if (low < high)
     {
-        partitionIndex = partition(A, low, high); 
+        partitionIndex = partition(A, low, high); // calling the partition function to split the array by finding pivot point.
         quickSort(A, low, partitionIndex - 1);  // sort left subarray 
         quickSort(A, partitionIndex + 1, high); // sort right subarray
     }
@@ -78,8 +78,8 @@ int main()
     //     printf("%d ",A[i]);
     // }
 
-    printArray(A, n);
-    quickSort(A, 0, n - 1);
-    printArray(A, n);
+    printArray(A, n);  //printing array before quickSort
+    quickSort(A, 0, n - 1);  //calling quickSort function
+    printArray(A, n);   //printing array after quickSort
     return 0;
 }
